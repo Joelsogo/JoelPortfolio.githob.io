@@ -318,14 +318,16 @@ span {
   width: 25rem;
   height: 25rem;
   border-radius: 10%;
- 
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 .about-img img {
-  width: 50%;
+  overflow: hidden;
+  width: 90%;
+  
   border-radius: 50%;
   border: 0.2rem solid var(--main-color);
 }
