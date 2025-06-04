@@ -85,13 +85,13 @@ form.addEventListener("submit",(e) => {
 document.getElementById('downloadCv').addEventListener('click', function(event) {
     event.preventDefault(); 
     if (confirm('CV Would you like to download the file?')) {
-        window.location.href = 'joeloluwasogo.docx'; 
+        window.location.href = 'joeloluwasogo.pdf'; 
     }
 });
 
 document.getElementById('downloadCv2').addEventListener('click', function(event) {
     event.preventDefault(); 
     if (confirm('CV Would you like to download the file?')) {
-        window.location.href = 'joeloluwasogo.docx'; 
+        window.location.href = 'joeloluwasogo.pdf'; 
     }
 });
