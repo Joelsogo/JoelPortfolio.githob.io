@@ -46,7 +46,7 @@ body {
 }
 
 .logo {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--main-color);
   font-weight: 600;
   width: 45px;
@@ -55,17 +55,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--background-color);
+  background-color: var(--bg-color);
   position: relative;
 }
 
-/* .logo::after {
+.logo::after {
   position: absolute;
-  pointer-events: none;
+  /* pointer-events: none; */
   content: "";
-  width: 110%;
-  height: 110%;
-  background-image: conic-gradient(red 20deg, transparent 100deg);
+  width: 114%;
+  height: 114%;
+  background: conic-gradient(var(--main-color) 20deg, transparent 100deg);
   border-radius: 50%;
   z-index: -1;
   animation: 2s linear infinite rotate;
@@ -78,7 +78,7 @@ body {
   100% {
     transform: rotate(360deg);
   }
-} */
+}
 
 .navbar {
   position: relative;
@@ -118,7 +118,7 @@ section {
   background-position: center;
 }
 .home-content {
-  max-width: 60rem;
+  max-width: 65rem;
   z-index: 99;
 }
 
@@ -137,7 +137,7 @@ section {
 
 .home-content .text-animate {
   position: relative;
-  width: 32.8rem;
+  width: 43rem;
 }
 .home-content .text-animate h3 {
   font-size: 3.2rem;
@@ -147,9 +147,8 @@ section {
   background-image: linear-gradient(var(--main-color), var(--main-color));
   background-repeat: no-repeat;
   -webkit-background-clip: text;
-  background-position: -33rem 0;
-  /* width: max-content; */
-  /* background-clip: text; */
+  background-position: -43rem 0;
+  transition: all 0.5s;
 }
 
 .home.show-animate .home-content .text-animate h3 {
@@ -176,6 +175,30 @@ section {
   position: relative;
   font-size: 1.6rem;
   margin: 2rem 0 4rem;
+  display: inline-block;
+  line-height: 24px;
+}
+
+.home-content a {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: var(--main-color);
+  text-decoration: none;
+  position: relative;
+}
+.home-content a::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background-color: var(--main-color);
+}
+
+.home-content a:hover:after {
+  transition: all 0.7s;
+  width: 100%;
 }
 
 .btn-box {
@@ -239,7 +262,7 @@ section {
 .home-sci {
   position: absolute;
   bottom: 4rem;
-  width: 170px;
+  width: 200px;
   display: flex;
   justify-content: space-between;
 }
@@ -323,13 +346,45 @@ span {
   align-items: center;
   margin-bottom: 2rem;
 }
+.image {
+  /* display: flex; */
+  width: 100%;
+  background: linear-gradient(
+      to bottom right,
+      rgba(5, 25, 55, 0.43),
+      rgba(0, 77, 122, 0.498),
+      rgba(0, 135, 147, 0.482),
+      rgba(0, 191, 115, 0.486),
+      rgba(166, 235, 18, 0.518)
+    ),
+    url("/images/joel.jpg");
 
+  background-size: cover;
+  background-position-y: top;
+  height: 100%;
+  background-repeat: no-repeat;
+  border-radius: 1rem;
+  transition: all 0.5s;
+}
+.abt-img {
+  position: relative;
+  transform: scale(1);
+  width: 100%;
+  height: 100%;
+}
 .about-img img {
   overflow: hidden;
-  width: 90%;
-  
+  width: 100%;
+  height: 100%;
+
   border-radius: 50%;
   border: 0.2rem solid var(--main-color);
+}
+.about-img:hover .image {
+  background: url("/images/joel.jpg");
+  z-index: 9;
+  background-position-y: top;
+  background-size: cover;
 }
 
 .about-img .circle-spin {
@@ -358,6 +413,7 @@ span {
   position: relative;
   font-size: 1.6rem;
   margin: 2rem 0 3rem;
+  line-height: 24px;
   color: color-mix(in srgb, var(--text-color) 100%, transparent 20%);
 }
 .btn-box.btns {
@@ -542,6 +598,29 @@ span {
   transform: translateX(-50%);
 }
 
+.contact-content {
+  text-align: center;
+}
+.contact-content h3 {
+  position: relative;
+  display: inline-block;
+  font-size: 2.6rem;
+}
+.contact-content p {
+  position: relative;
+  font-size: 1.6rem;
+  margin: 2rem 0 3rem;
+  line-height: 30px;
+  color: color-mix(in srgb, var(--text-color) 100%, transparent 30%);
+}
+.btn-box.btns {
+  display: inline-block;
+  width: 15rem;
+}
+.btn-box.btns::before {
+  background: var(--second-bg-color);
+}
+
 .contact form {
   max-width: 70rem;
   margin: 0 auto;
@@ -555,6 +634,14 @@ span {
   flex-wrap: wrap;
 }
 
+.contact-details {
+  margin: 0 auto;
+  width: 70%;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--text-color);
+  margin-bottom: 4rem;
+}
 .contact form .input-box .input-field {
   position: relative;
   width: 49%;
@@ -609,6 +696,18 @@ span {
   cursor: pointer;
 }
 
+#vert-box {
+  position: fixed;
+  bottom: 0;
+  left: -5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  z-index: 99999;
+}
 .footer {
   display: flex;
   justify-content: space-between;
@@ -664,6 +763,35 @@ span {
 
 .footer-iconTop a:hover i {
   color: var(--main-color);
+}
+.vertical-mail-box {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.vertical-mail {
+  font-size: 13px;
+  color: var(--main-color);
+  text-orientation: mixed;
+  writing-mode: vertical-lr;
+  transition: all 0.7s;
+}
+.vertical-mail:hover {
+  transform: translateY(-5px);
+}
+
+.vertical-line {
+  width: 2px;
+  height: 5rem;
+  background-color: var(--text-color);
+  transition: all 0.5s;
 }
 
 /*animation reload*/
@@ -867,7 +995,7 @@ section:nth-child(odd) .animate.scroll,
   0%,
   10%,
   100% {
-    background-position: -33rem 0;
+    background-position: -43rem 0;
   }
   65%,
   85% {
@@ -883,7 +1011,7 @@ section:nth-child(odd) .animate.scroll,
   65%,
   78%,
   85% {
-    width: 90%;
+    width: 100%;
     opacity: 1;
   }
   75%,
